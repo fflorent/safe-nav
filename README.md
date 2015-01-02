@@ -61,3 +61,4 @@ If you pass -c to sjs along with -o output.js, it will generate a sourcemap so y
 ## TODO
 
 * Tests
+* Optimizations
