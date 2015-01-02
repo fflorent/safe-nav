@@ -1,7 +1,7 @@
 {
   "name": "safe-nav",
   "version": "0.0.0",
-  "description": "sweet.js macro implementation of the safe-navigation à la CoffeeScript",
+  "description": "sweet.js macro for safe navigation à la CoffeeScript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
