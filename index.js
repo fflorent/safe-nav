@@ -30,3 +30,5 @@ macro (?.) {
     ($lhs != null ? $lhs.$rhs : $lhs)
   }
 }
+
+export (?.)
