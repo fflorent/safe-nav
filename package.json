@@ -1,0 +1,23 @@
+{
+  "name": "safe-nav",
+  "version": "0.0.0",
+  "description": "sweet.js macro implementation of the safe-navigation à la CoffeeScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fflorent/safe-nav.git"
+  },
+  "keywords": [
+    "sweet-macro",
+    "safe-navigation",
+    "coffeescript"
+  ],
+  "author": "Florent Fayolle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fflorent/safe-nav/issues"
+  }
+}
