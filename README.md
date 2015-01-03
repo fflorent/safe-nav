@@ -7,8 +7,8 @@ or the [Safe-Navigation](http://docs.codehaus.org/display/GROOVY/Operators#Opera
 So you can easily change a piece of code of this type:
 
 ````js
-if (parent) {
-  var child = parent.querySelector(".class");
+if (ancestor) {
+  var child = ancestor.querySelector(".class");
   if (child)
     child.remove();
 }
@@ -17,10 +17,22 @@ if (parent) {
 to
 
 ````js
-parent?.querySelector(".class")?.remove();
+ancestor?.querySelector(".class")?.remove();
 ````
 
-Simpler, isn't it?
+Or:
+````js
+if (console && console.dirxml)
+  console.dirxml(document.body);
+````
+
+to:
+
+````js
+console?.dirxml?(document.body);
+````
+
+More concise, isn't it?
 
 ## Installing
 

@@ -20,6 +20,7 @@
  * THE SOFTWARE.
  */
 
+// Define the "?." operator
 macro (?.) {
   // Support syntax of this form: a?.b(arg1, arg2, ...)
   rule infix {$lhs:expr|$rhs:ident($args ...)} => {
@@ -32,3 +33,16 @@ macro (?.) {
 }
 
 export (?.)
+
+// Redefine the "?" operator
+let (?) = macro {
+  // nullable?(args1, arg2, ...)
+  rule infix { $lhs | ($args ...) } => {
+    // if lhs is not a function, return
+    ($lhs || function(){})($args ...)
+  }
+  // Default (just
+  rule {} => { ? }
+}
+
+export (?)
