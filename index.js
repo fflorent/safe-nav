@@ -20,15 +20,26 @@
  * THE SOFTWARE.
  */
 
+macroclass greedy_prop_chain {
+  // identifier(arguments...)
+  pattern {
+    rule {$chain:($id:ident($args...))}
+  }
+  // identifier[arguments...]
+  pattern {
+    rule {$chain:($id:ident[$args...])}
+  }
+  // (Default) identifier
+  pattern {
+    rule {$chain:($id:ident)}
+  }
+}
+
 // Define the "?." operator
 macro (?.) {
-  // Support syntax of this form: a?.b(arg1, arg2, ...)
-  rule infix {$lhs:expr|$rhs:ident($args ...)} => {
-    ($lhs != null ? $lhs.$rhs($args...) : $lhs)
-  }
   // Support syntax of this form: a?.b
-  rule infix {$lhs:expr|$rhs:ident} => {
-    ($lhs != null ? $lhs.$rhs : $lhs)
+  rule infix { $lhs:expr | $rhs:greedy_prop_chain(.)... } => {
+    ($lhs != null ? $lhs.$rhs$chain(.)... : $lhs)
   }
 }
 
