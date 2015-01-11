@@ -39,7 +39,10 @@ macroclass greedy_prop_chain {
 macro (?.) {
   // Support syntax of this form: a?.b
   rule infix { $lhs:expr | $rhs:greedy_prop_chain(.)... } => {
-    ($lhs != null ? $lhs.$rhs$chain(.)... : $lhs)
+    (function() {
+      var lhs = $lhs;
+      return lhs != null ? lhs.$rhs$chain(.)... : lhs;
+    })()
   }
 }
 
